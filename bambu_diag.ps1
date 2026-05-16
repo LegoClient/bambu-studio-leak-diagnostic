@@ -19,7 +19,7 @@ Write-Host ""
 
 # Non-blocking popup via a background job so the sampling loop never stalls
 function Show-Popup([string]$Message) {
-    $escaped = $Message -replace [char]39, [char]39 + [char]39
+    $escaped = $Message -replace [char]39, ([char]39 + [char]39)
     Start-Process mshta.exe -ArgumentList "vbscript:MsgBox(""$escaped"",48,""Bambu Studio Warning"")(window.close)"
 }
 
