@@ -108,9 +108,9 @@ while ($true) {
     Write-Host "$ts | $procStr | VRAM:${vramUsed}/${vramTotal}MB GPU:${gpuUtil}% | RAM:${ramUsed}/${ramTotal}MB (${ramPct}%) | PF:${pfUsed}MB" -ForegroundColor $color
 
     # Warn when handles are high enough that a restart is advisable
-    if ($bambuPid -and $handles -ge 1250 -and ([datetime]::Now - $lastPopup).TotalSeconds -ge 60) {
+    if ($bambuPid -and $handles -ge 1500 -and ([datetime]::Now - $lastPopup).TotalSeconds -ge 60) {
         Write-Host "  *** HANDLE WARNING: $handles handles -- consider restarting Bambu Studio now ***" -ForegroundColor Red
-        Show-Popup "Handle count is $handles (threshold: 1250).`n`nRestart Bambu Studio now to avoid the system freeze."
+        Show-Popup "Handle count is $handles (threshold: 1500).`n`nRestart Bambu Studio now to avoid the system freeze."
         $lastPopup = [datetime]::Now
     }
 
